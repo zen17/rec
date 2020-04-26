@@ -1,0 +1,58 @@
+@import "src/assets/scss/theme-variables.scss";
+
+nav {
+    background-color: white;
+}
+a {
+    color: $primary-font-color;
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-family: $primary-font;
+    border-bottom: 2px solid white;
+}
+a:not(#imgLink):hover {
+    border-bottom: 2px solid $primary-color;
+    text-decoration: none;
+}
+
+.sign-in {
+    color: $primary-color;
+    font-weight: 500;
+}
+
+li .sign-in-divider {
+    border-right: 3px solid #faf9f8;
+    height: 100%;
+    font-weight: 400;
+    margin-right: 1.5rem;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 1.5rem;
+}
+
+.navbar-collapse {
+    padding: 0px 20px;
+    .margin-r-auto {
+        margin-right: auto;
+    }
+    .margin-l-auto {
+        margin-left: auto;
+    }
+}
+.navbar-collapse.collapsing,
+.navbar-collapse.show {
+    display: flex;
+    justify-content: center;
+    padding: 0px 20px;
+    flex-direction: column;
+    text-align: center;
+    .margin-l-auto {
+        margin-left: 0;
+    }
+    .margin-r-auto {
+        margin-right: 0;
+    }
+}

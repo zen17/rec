@@ -1,0 +1,6 @@
+@for $pixelNumber from 1 through 100 {
+    /*Font size*/
+    .mc-g-font-size-#{$pixelNumber} {
+      font-size: #{$pixelNumber}px;
+    }
+}

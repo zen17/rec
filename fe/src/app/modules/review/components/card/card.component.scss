@@ -1,0 +1,78 @@
+@import "src/assets/scss/theme-variables.scss";
+
+.image-size {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+  border: none;
+}
+
+.image-size:hover {
+   transition: 0.2s all ease-out;
+}
+
+.card {
+   transition: transform 0.2s;
+  cursor: pointer;
+  padding-bottom: 1.5rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #dddddd !important;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.card:hover {
+    transform: scale(1.03, 1.03);
+}
+
+.card-body {
+  font-family: $primary-font;
+  color: rgb(13, 39, 39);
+  padding-top: 0px;
+  line-height: 1.5;
+}
+
+.card-title {
+  padding-top: 0.5rem;
+  color: rgb(13, 39, 39);
+}
+
+.card-address {
+  font-size: 10px;
+  font-weight: 500;
+  color: #dddddd;
+}
+
+.heart-over-image {
+  position: absolute;
+  float: right;
+  z-index: 99;
+  left: 0.5rem;
+  top: 0.5rem;
+  border-radius: 50% !important;
+  border: 0px !important;
+  outline: 0px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  padding-top: 1px;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  cursor: pointer !important;
+  -webkit-align-items: center !important;
+  align-items: center !important;
+  -webkit-justify-content: center !important;
+  justify-content: center !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+  background-clip: padding-box !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0px 0px 0px 1px transparent, 0px 0px 0px 4px transparent, 0px 2px 4px rgba(0, 0, 0, 0.18) !important;
+  -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.25s ease, transform 0.25s ease !important;
+  -moz-transition: box-shadow 0.2s ease, transform 0.25s ease !important;
+  transition: box-shadow 0.2s ease, -ms-transform 0.25s ease, -webkit-transform 0.25s ease, transform 0.25s ease !important;
+  width: 32px !important;
+  height: 32px !important;
+}

@@ -1,0 +1,40 @@
+@import "src/assets/scss/theme-variables.scss";
+
+.image-size {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border: none;
+}
+
+.image-size:hover {
+    transition: 0.2s all ease-out;
+}
+
+.card {
+    transition: transform 0.2s;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.card:hover {
+    transform: scale(1.04, 1.04);
+}
+
+.card-body {
+    font-family: $primary-font;
+    color: rgb(13, 39, 39);
+    padding-top: 0px;
+    line-height: 1.5;
+}
+
+.card-title {
+    font-family: $primary-font;
+    padding-top: 0.5rem;
+    font-size: 1.2rem;
+    color: rgb(13, 39, 39);
+}
+
+

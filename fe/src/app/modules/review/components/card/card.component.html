@@ -1,0 +1,35 @@
+ <div class="warrap-divider">
+
+
+ <div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-5 position-relative">
+      <img class="image-size"
+        src="{{business.thumbUrl}}"
+        alt="Card image cap">
+      <button class="primary-color heart-over-image">
+        <fa-icon [icon]="faIcons.faHeart"></fa-icon>
+      </button>
+    </div>
+    <div class="col-md-7">
+      <div class="card-body">
+        <div class="d-flex">
+          <h5 class="card-title">{{business.title}} {{business.id}}</h5>
+          <div class="ml-auto d-flex align-items-center">
+            <fa-icon class="primary-color" [icon]="faIcons.faStar"></fa-icon>
+            <small class="text-muted pl-1">{{business.qualityMark}}/5 </small> <!-- TODO hardcoded number of reviews -->
+            <small class="text-muted pl-1"><span class="font-italic">245 reviews</span> </small>
+          </div>
+        </div>
+        <div class="d-flex flex-column">
+          <span class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+            content.
+            This content is a little bit longer.</span>
+          <span class="card-text"><small class="text-muted card-address">{{business.address}}</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

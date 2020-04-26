@@ -1,0 +1,25 @@
+@import "src/assets/scss/theme-variables.scss";
+
+ngb-pagination ::ng-deep ul > li > a {
+    border: none;
+    border-radius: 4px;
+    color: grey;
+    font-weight: 600;
+}
+
+ngb-pagination ::ng-deep ul > li > a:hover {
+    border: none;
+    border-radius: 4px;
+    color: grey;
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+    border: none;
+    background-color: $primary-color !important;
+}
+
+ngb-pagination ::ng-deep .page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0 transparent;
+}

@@ -1,0 +1,33 @@
+.wrapper-padding-15 {
+    padding: 7vh 0;
+}
+.star {
+    font-size: 1.5rem;
+    color: #b0c4de;
+}
+.filled {
+    color: #ffcb74;
+}
+.text-decoration-none {
+    text-decoration: none !important;
+}
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  border-color: #ffcb74;
+  background-color: #ffcb74;
+}
+ngb-accordion ::ng-deep .btn:hover {
+  text-decoration: none;
+}
+ngb-accordion ::ng-deep button {
+  width: 100%; width: 100%;
+  display: flex;
+  align-items: center;
+}
+ngb-carousel ::ng-deep .carousel-inner {
+  border-radius: 0.8rem;
+}
+.btn-post-comment {
+  color: white;
+  background-color: #ffcb74;
+  border-color: #ffcb74;
+}

@@ -1,0 +1,147 @@
+nav {
+
+    ul {
+      list-style-type: none;
+      overflow: hidden;
+    }
+  
+    .right-list {
+      float: right;
+    }
+  
+    .left-list {
+      float: left;
+      margin: 0;
+    }
+  
+    li {
+      float: right;
+  
+      a {
+        display: block;
+        color: darkslategray;
+        text-align: center;
+        padding: 14px 5px;
+        margin: 0 5px 0 5px;
+        text-decoration: none;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        border-bottom: white;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+      }
+  
+      a:hover {
+        border-bottom: #007faf;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+      }
+  
+      button {
+        color: #007faf;
+        text-align: center;
+        padding: 14px 20px;
+        margin: 0 5px 0 5px;
+        text-decoration: none;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        border: 2px solid #007faf;
+        border-radius: 3px;
+      }
+  
+      button:hover {
+        background-color: #007faf;
+        color: white;
+      }
+    }
+  
+  }
+  
+  .inline-search-input-location {
+    display: flex;
+    margin: 3rem auto;
+    width: 67vw;
+    max-width: 960px;
+  
+  
+    button {
+      width: 12vw;
+      height: 5vh;
+      outline: none;
+      background-color: #007faf;
+      font-size: 12px;
+      background-image: url("/assets/search-icon.svg");
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: center;
+      border-radius: 2px;
+      border: none;
+    }
+  
+    button:hover {
+      background-color: rgb(#007faf, 0.8);
+    }
+  
+    input::placeholder {
+      color: #9ba2a6;
+    }
+  
+  
+    @mixin search-box() {
+      height: 5vh;
+      font-size: 15px;
+      color: darkslategray;
+      border-radius: 2px;
+      border: 1px solid #9ba2a6;
+      background-color: transparent;
+      margin-right: 1rem;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      outline: none;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  
+    }
+  
+    #search-input-left {
+      width: 70vw;
+      @include search-box();
+    }
+  
+    #search-location-right {
+      width: 40vw;
+      @include search-box();
+    }
+  }
+  
+  .main-wrapper {
+    margin: 0 auto;
+    max-width: 960px;
+  
+    .logo {
+      margin: 5rem auto 0;
+      width: 300px;
+      height: 100px;
+      background-image: url("/assets/logo.png");
+      background-repeat: no-repeat;
+    }
+  
+    p {
+      margin: 0 auto;
+      width: 350px;
+      color: darkslategray;
+      text-align: center;
+      font-size: 16px;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+  
+  }
+
+  .divider {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #dddddd !important;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  

@@ -1,0 +1,7 @@
+<div *ngIf="pagination">
+    <ngb-pagination class="shadow-none" [collectionSize]="pagination.totalElements" [(page)]="pageNumber"
+        (pageChange)="onPageChange($event)" [rotate]="true" [ellipses]="false" [maxSize]="5">
+        <ng-template ngbPaginationPrevious><fa-icon [icon]="faIcons.faAngleLeft"></fa-icon></ng-template>
+        <ng-template ngbPaginationNext><fa-icon [icon]="faIcons.faAngleRight"></fa-icon></ng-template>
+    </ngb-pagination>
+</div>

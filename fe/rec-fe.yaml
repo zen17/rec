@@ -1,0 +1,37 @@
+runtime: nodejs10
+service: default
+handlers:
+
+# Initial route that will serve up index.html, main entry point to your app
+- url: /
+  secure: always
+  static_files: fe/index.html
+  upload: fe/.*
+
+# Routing for typedoc, assets and favicon.ico to serve directly
+- url: /((?:assets|docs)/.*|favicon\.ico)
+  secure: always
+  redirect_http_response_code: 301
+  static_files: fe/\1
+  upload: fe/.*
+  
+# Routing for any js files
+- url: /(.*\.js)
+  secure: always
+  redirect_http_response_code: 301
+  static_files: fe/\1
+  upload: fe/.*\.js
+
+# Routing for any css files
+- url: /(.*\.css)
+  secure: always
+  redirect_http_response_code: 301
+  static_files: fe/\1
+  mime_type: text/css
+  upload: fe/.*\.css
+  
+# Routing for anything (wild card) after
+- url: /.*
+  secure: always
+  static_files: fe/index.html
+  upload: fe/.*

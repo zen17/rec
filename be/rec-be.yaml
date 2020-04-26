@@ -1,0 +1,4 @@
+runtime: nodejs10
+service: rec-be
+includes:
+- env-prd.yaml

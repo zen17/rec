@@ -1,0 +1,52 @@
+<!-- <button (click)="logout()">Logout</button> -->
+
+
+<div class="pl-5 pr-3">
+
+
+    
+    <!-- LIST -->
+    <div class="row">
+        <div class="col-12 col-lg-7">
+
+            <div class="row p-4">
+                <!-- FILTER -->
+                <div class="col-12 d-flex align-items-center">
+                    <span>Search Results: {{businessList.elements.length}} listings</span>
+                    <div class="ml-auto d-flex align-items-center">
+                        <span>Sort By:</span>
+                        <div class="input-group mx-2 width-fit-content">
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option value="1">One</option>
+                                <option selected value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column align-items-center">
+                <app-card class="mb-2" *ngFor="let business of businessList.elements" [business]="business"></app-card>
+                <app-pagination (paginationChanged)="paginationChanged()" [Pagination]="businessList.pagination">
+                </app-pagination>
+            </div>
+        </div>
+
+        <!-- MAP -->
+        <div class="col-lg-5 px-0 map-div d-none d-lg-block">
+            <google-map height="100vh" width="100%" [zoom]="zoom" [center]="center"
+            [options]="options">
+                <map-marker #markerElem *ngFor="let marker of markers" 
+                [position]="marker.position" [label]="marker.label"
+                [title]="marker.title" [options]="marker.options" (mapClick)="openInfo(markerElem, marker.info)"></map-marker>
+
+                <map-info-window >
+                    {{infoContent}}
+                </map-info-window>
+            </google-map>
+        </div>
+    </div>
+
+
+</div>

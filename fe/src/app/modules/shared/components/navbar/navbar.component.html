@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md">
+  <a class="navbar-brand" id="imgLink" href="#">
+    <!-- <img src="../../../../../assets/logo.png" width="100" height="50" class="d-inline-block align-top mx-4 mt-n1" alt=""> -->
+  </a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show' : navbarOpen }" id="navbarSupportedContent">
+    <ul class="navbar-nav margin-r-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Firme</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dogadjaji</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Poslovi na brzinu</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav margin-l-auto">
+      <li class="nav-item">
+        <a *ngIf="!isLoggedin" class="nav-link" [routerLink]="['/login']">Log in</a>
+        <a *ngIf="isLoggedin" class="nav-link" (click)="logout()">Log out</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedin">
+        <a class="nav-link sign-in" href="#">Sign up</a>
+      </li>
+      <li class="nav-item">
+        <div class="sign-in-divider"></div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">For Businesses</a>
+      </li>
+    </ul>
+  </div>
+</nav>

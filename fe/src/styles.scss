@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './assets/scss/generated-classes.scss';
+@import './assets/scss/theme-variables.scss';
+@import './assets/scss/basic-classes.scss';
+
+html {
+    scroll-behavior: smooth;
+}

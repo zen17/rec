@@ -1,0 +1,62 @@
+.login-page-wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+img {
+    height: -webkit-fill-available;
+    object-fit: cover;
+    object-position: center;
+}
+.width-webkit-fill {
+    width: -webkit-fill-available;
+}
+.font-size-2-5 {
+    font-size: 2.5rem;
+}
+.text-align-end {
+    text-align: end;
+}
+.login-inputs-color {
+    background: #ffcb74;
+    color: white;
+}
+.login-input-prepand-width {
+    width: 10%;
+    min-width: 45px;
+}
+.login-button {
+    min-width: 70px;
+    width: 25%;
+    border-color: #FC7416;
+    background-color: #FC7416;
+    color: white;
+    &:hover {
+        border-color: #e46911;
+        background-color: #e46911;
+    }
+}
+.form-control:focus{
+    border-color: #ffcb74;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+.color-grey {
+    color: rgb(116, 115, 115);
+}
+.color-white {
+    color: white;
+}
+.width-10 {
+    width: 10%;
+}
+
+// @MEDIA
+// @media only screen and (max-width: 768px) {
+//     .login-page-wrapper {
+//         background-image: url("../../../../../assets/toa-heftiba-6bKpHAun4d8-unsplash.jpg");
+//     }
+//   }
