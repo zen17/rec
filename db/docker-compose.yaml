@@ -17,4 +17,4 @@ services:
 #   Set a volume some that database is not lost after shutting down the container.
 #   I used the name postgres-data but you can changed it to something else.
     volumes:
-      - ./postgres-save-afert-container-down-data:/var/lib/postgresql/data
+      - ./postgres-save-data:/var/lib/postgresql
