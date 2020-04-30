@@ -6,10 +6,11 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { UserProfilePageComponent } from './pages/user-profile-page/user-profile-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CreateUserPageComponent } from './pages/create-user-page/create-user-page.component';
 
 
 @NgModule({
-    declarations: [LoginPageComponent, UserProfilePageComponent],
+    declarations: [LoginPageComponent, UserProfilePageComponent, CreateUserPageComponent],
     imports: [
         CommonModule, HttpClientModule, ReactiveFormsModule, FontAwesomeModule
     ],

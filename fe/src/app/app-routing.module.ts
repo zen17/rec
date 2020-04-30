@@ -6,6 +6,7 @@ import { UserProfilePageComponent } from './modules/auth/pages/user-profile-page
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { ListWithPagintonComponent } from './modules/review/pages/list-with-paginton/list-with-paginton.component';
 import { BusinessProfileComponent } from './modules/review/pages/business-profile/business-profile.component';
+import {CreateUserPageComponent} from './modules/auth/pages/create-user-page/create-user-page.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: 'business-profile',
     component: BusinessProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'create-user',
+    component: CreateUserPageComponent
   },
   {
     path: '**',

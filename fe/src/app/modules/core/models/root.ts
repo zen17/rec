@@ -1,3 +1,4 @@
+import {FormGroup} from "@angular/forms";
 
 export abstract class Root {
     public id = 0;
@@ -33,6 +34,7 @@ export abstract class Root {
         this.apiSuccess = false;
         this.apiError = false;
     }
+
     public setApiSuccess() {
         this.apiLoading = false;
         this.apiSuccess = true;
@@ -41,6 +43,14 @@ export abstract class Root {
     public setApiError() {
         this.apiLoading = false;
         this.apiSuccess = true;
+    }
+
+    populateObjectFormReactiveFormGroup(formGroup: FormGroup) {
+        Object.keys(formGroup.controls).forEach(key => {
+            if (this.hasOwnProperty(key)) {
+                this[key] = formGroup.controls[key].value;
+            }
+        });
     }
 
 }
