@@ -62,7 +62,7 @@
     </div>
 
     <div class="form-group row mb-3">
-        <div class="col-7">
+        <div class="col-7 pl-0">
             <label for="city"> City</label>
             <input id="city" formControlName="city" type="text" class="form-control">
             <div *ngIf="city.invalid && (city.dirty || city.touched)"
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-2 pr-0">
             <label for="zip"> Zip</label>
             <input id="zip" formControlName="zip" type="text" class="form-control">
             <div *ngIf="zip.invalid && (zip.dirty || zip.touched)"
@@ -97,7 +97,7 @@
         </div>
     </div>
     <div class="form-group row mb-3">
-        <div class="col-2">
+        <div class="col-2 pl-0">
             <label for="gender">Gender</label>
             <select formControlName="gender" class="custom-select" id="gender" required>
                 <option selected value="male">Male</option>
@@ -107,7 +107,7 @@
     </div>
 
     <div class="form-group row mb-3">
-        <div class="col-5">
+        <div class="col-5 pl-0">
             <label for="profileImage">Upload profile image</label>
             <input type="file" class="custom-select" id="profileImage">
         </div>

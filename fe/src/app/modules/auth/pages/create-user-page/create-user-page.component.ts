@@ -14,25 +14,6 @@ export class CreateUserPageComponent implements OnInit {
     constructor() {
     }
 
-    ngOnInit(): void {
-        this.createUserFormGroup = new FormGroup({
-            firstName: new FormControl('', [Validators.required]),
-            lastName: new FormControl('', [Validators.required]),
-            email: new FormControl('', [Validators.required, Validators.email]),
-            password: new FormControl('', [Validators.required]),
-            repeatPassword: new FormControl('', [Validators.required]),
-            city: new FormControl('', [Validators.required]),
-            country: new FormControl('', [Validators.required]),
-            zip: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]\d*$/)
-            ]),
-            gender: new FormControl('male', [Validators.required]),
-        });
-    }
-
-    passwordsMatch() {
-        return this.createUserFormGroup.get('password').value === this.createUserFormGroup.get('repeatPassword').value;
-    }
-
     get firstName() {
         return this.createUserFormGroup.get('firstName');
     }
@@ -65,6 +46,25 @@ export class CreateUserPageComponent implements OnInit {
         return this.createUserFormGroup.get('zip');
     }
 
+    ngOnInit(): void {
+        this.createUserFormGroup = new FormGroup({
+            firstName: new FormControl('', [Validators.required]),
+            lastName: new FormControl('', [Validators.required]),
+            email: new FormControl('', [Validators.required, Validators.email]),
+            password: new FormControl('', [Validators.required]),
+            repeatPassword: new FormControl('', [Validators.required]),
+            city: new FormControl('', [Validators.required]),
+            country: new FormControl('', [Validators.required]),
+            zip: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]\d*$/)
+            ]),
+            gender: new FormControl('male', [Validators.required]),
+        });
+    }
+
+    passwordsMatch() {
+        return this.createUserFormGroup.get('password').value === this.createUserFormGroup.get('repeatPassword').value;
+    }
+
     createUser() {
         if (this.createUserFormGroup.valid) {
             const user = new User();
@@ -73,6 +73,12 @@ export class CreateUserPageComponent implements OnInit {
             console.log('FORM', this.createUserFormGroup.controls);
             console.log('FORM', this.createUserFormGroup.value);
             console.log('User: ', user);
+        } else {
+            Object.keys(this.createUserFormGroup.controls).forEach(key => {
+                if (this.createUserFormGroup.controls[key].invalid) {
+                    this.createUserFormGroup.controls[key].markAsTouched();
+                }
+            });
         }
     }
 
