@@ -29,7 +29,7 @@ export class Business extends Root implements Deserialize {
       //  this.businessService = ServicesDependencyInjection.injector.get(BusinessService);
     }
 
-    public deserialze(businesDto) {
+    public deserialize(businesDto) {
         this.id = +businesDto.id;
         this.title = businesDto.title;
         this.description = businesDto.description;
@@ -42,13 +42,13 @@ export class Business extends Root implements Deserialize {
         this.qualityMark = +businesDto.qualityMark;
         this.creationDate = new Date(businesDto.creationDate);
         if (businesDto.user && this.user) {
-            this.user.deserialze(businesDto.user);
+            this.user.deserialize(businesDto.user);
         }
 
         if (businesDto.comments) {
             businesDto.comments.forEach(commentDto => {
                 let comment = new Comment(this.user);
-                comment.deserialze(commentDto);
+                comment.deserialize(commentDto);
                 this.commentList.add(comment);
             });
         }

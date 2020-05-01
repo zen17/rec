@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {User} from "../../../core/models/user";
+import {User} from '../../../core/models/user';
+import {NgbCalendar, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {UserService} from "../../../core/services/user.service";
 
 @Component({
     selector: 'app-create-user-page',
@@ -10,8 +12,10 @@ import {User} from "../../../core/models/user";
 export class CreateUserPageComponent implements OnInit {
 
     createUserFormGroup: FormGroup;
+errorMsg = '';
+    model: NgbDateStruct;
 
-    constructor() {
+    constructor(private readonly userService: UserService) {
     }
 
     get firstName() {
@@ -47,17 +51,23 @@ export class CreateUserPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        const date = new Date();
         this.createUserFormGroup = new FormGroup({
             firstName: new FormControl('', [Validators.required]),
             lastName: new FormControl('', [Validators.required]),
             email: new FormControl('', [Validators.required, Validators.email]),
-            password: new FormControl('', [Validators.required]),
-            repeatPassword: new FormControl('', [Validators.required]),
+            password: new FormControl('', [Validators.required, Validators.minLength(7)]),
+            repeatPassword: new FormControl('', [Validators.required, Validators.minLength(7)]),
             city: new FormControl('', [Validators.required]),
             country: new FormControl('', [Validators.required]),
             zip: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]\d*$/)
             ]),
             gender: new FormControl('male', [Validators.required]),
+            birthDate: new FormControl({
+                day: date.getDate(),
+                month: date.getMonth() + 1,
+                year: date.getFullYear()
+            }, Validators.required)
         });
     }
 
@@ -69,10 +79,16 @@ export class CreateUserPageComponent implements OnInit {
         if (this.createUserFormGroup.valid) {
             const user = new User();
             user.populateObjectFormReactiveFormGroup(this.createUserFormGroup);
-            console.log('FORM', this.createUserFormGroup);
             console.log('FORM', this.createUserFormGroup.controls);
-            console.log('FORM', this.createUserFormGroup.value);
-            console.log('User: ', user);
+            console.log('USER', user);
+            this.userService.createUser(user).subscribe(success => {
+                console.log(success);
+                this.errorMsg = 'User created';
+            } , error => {
+                console.log(error);
+                this.errorMsg = error.error.message;
+            });
+
         } else {
             Object.keys(this.createUserFormGroup.controls).forEach(key => {
                 if (this.createUserFormGroup.controls[key].invalid) {

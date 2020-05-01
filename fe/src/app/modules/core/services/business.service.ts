@@ -21,7 +21,7 @@ export class BusinessService extends RootService {
   public loadById(id: number): Observable<Business> {
     return this.httpClient.get<Business>(this.rootApiUrl + '/fullbusiness/' + id)
       .pipe(
-        map(business => new Business(new User(), new CommentList()).deserialze(business))
+        map(business => new Business(new User(), new CommentList()).deserialize(business))
       );
   }
 
@@ -33,7 +33,7 @@ export class BusinessService extends RootService {
   loadBusinessList(pagination: Pagination): Observable<BusinessList> {
     return this.httpClient.get<BusinessList>(this.rootApiUrl + '/businesslistpartialdata/' + pagination.pageNumber + '/' + pagination.elementsPerPage)
       .pipe(
-        map(businessList => new BusinessList().deserialze(businessList))
+        map(businessList => new BusinessList().deserialize(businessList))
       );
   }
 

@@ -14,15 +14,15 @@ export class BusinessList extends List implements Deserialize {
      //   this.businessService = ServicesDependencyInjection.injector.get(BusinessService);
     }
 
-    deserialze(businessListDto: BusinessList) {
+    deserialize(businessListDto: BusinessList) {
         for (let index = this.elements.length; index >= 0; index--) {
-            this.elements.pop();            
+            this.elements.pop();
         }
         this.pagination = new Pagination();
-        this.pagination.deserialze(businessListDto.pagination);
+        this.pagination.deserialize(businessListDto.pagination);
         businessListDto.elements.forEach(elementDto => {
             let element = new Business();
-            element.deserialze(elementDto as Business);
+            element.deserialize(elementDto as Business);
             this.add(element);
           //  this.elements.push(element as Business)
         });

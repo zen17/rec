@@ -1,9 +1,10 @@
-import {Root} from '../../core/models/root';
+import {Root} from './root';
 import {Comment} from './comment';
 import {Deserialize} from './deserialize.interface';
 import {BusinessList} from './business-list';
 import {CommentList} from './comment-list';
 import {Business} from './business';
+import {IUser} from "./user.interface";
 
 export class User extends Root implements Deserialize {
 
@@ -18,39 +19,47 @@ export class User extends Root implements Deserialize {
     constructor(public firstName = '',
                 public lastName = '',
                 public email = '',
+                public password = '',
                 public avatarUrl = '',
                 public city = '',
                 public country = '',
-                public zip = '',
+                public zip = 0,
                 public gender = '',
                 public creationDate = null,
+                public birthDate = null,
                 public businessList = new BusinessList(),
                 public commentList = new CommentList()) {
         super();
     }
 
-    public deserialze(userDto) {
+    public deserialize(userDto: IUser) {
         console.log('USER DTO', userDto);
         this.firstName = userDto.firstName;
         this.lastName = userDto.lastName;
         this.email = userDto.email;
         this.avatarUrl = userDto.avatarUrl;
         this.creationDate = new Date(userDto.creationDate);
+        this.city = userDto.city;
+        this.country = userDto.country;
+        this.zip = userDto.zip;
+        this.gender = userDto.gender;
+        this.birthDate = userDto.birthDate;
 
-        if (userDto.commentsList && this.commentList) {
-            userDto.commentsList.forEach(commentDto => {
+        if (userDto.commentList && this.commentList) {
+            userDto.commentList.elements.forEach(commentDto => {
                 const comment = new Comment();
-                comment.deserialze(commentDto);
+                comment.deserialize(commentDto as Comment);
                 this.commentList.add(comment);
             });
         }
 
-        if (userDto.businessesList && this.businessList) {
-            userDto.businessesList.forEach(businessDto => {
+        if (userDto.businessList && this.businessList) {
+            userDto.businessList.elements.forEach(businessDto => {
                 const business = new Business();
-                business.deserialze(businessDto);
+                business.deserialize(businessDto as Business);
                 this.businessList.add(business);
             });
         }
+        return this;
     }
 }

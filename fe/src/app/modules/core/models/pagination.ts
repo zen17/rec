@@ -21,7 +21,7 @@ export class Pagination implements Deserialize {
         //  this.sortSettings = [];
     }
 
-    public deserialze(paginationDto: Pagination) {
+    public deserialize(paginationDto: Pagination) {
         this.pageNumber = paginationDto.pageNumber;
         this.totalPages = paginationDto.totalPages;
         this.elementsPerPage = paginationDto.elementsPerPage;

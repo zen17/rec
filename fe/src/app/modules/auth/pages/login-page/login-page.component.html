@@ -9,7 +9,7 @@
                 <div class="input-group-prepend login-input-prepand-width">
                     <span class="input-group-text width-webkit-fill justify-content-center login-inputs-color" id="inputGroup-sizing-lg"><fa-icon [icon]="faIcons.faUser"></fa-icon></span>
                 </div>
-                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" formControlName="username" placeholder="Username">
+                <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" formControlName="email" placeholder="Email">
             </div>
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend login-input-prepand-width">
@@ -21,7 +21,7 @@
                 <a href="#">Forgot password?</a>
             </div>
             <button class="btn login-button" (click)="getLoginFormData()">Login</button>
-            <span class="pt-4 color-grey">Don't have an acount? <a href="#">Sign up</a></span>
+            <span class="pt-4 color-grey">Don't have an acount? <a routerLink="/create-user" >Sign up</a></span>
         </div>
     </div>
 </div>

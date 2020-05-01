@@ -20,7 +20,7 @@ export class Comment extends Root implements Deserialize, IComment {
         this.business = business;
     }
 
-    public deserialze(comment: Comment) {
+    public deserialize(comment: Comment) {
         this.id = comment.id;
         this.text = comment.text;
         this.photoUrls = comment.photoUrls;
@@ -29,10 +29,10 @@ export class Comment extends Root implements Deserialize, IComment {
         this.usefulMark = comment.usefulMark;
 
         if (comment.user && this.user) {
-            this.user.deserialze(comment.user);
+            this.user.deserialize(comment.user);
         }
         if (comment.business && this.business) {
-            this.business.deserialze(comment.business);
+            this.business.deserialize(comment.business);
         }
     }
 

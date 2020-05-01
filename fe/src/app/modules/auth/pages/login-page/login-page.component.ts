@@ -21,14 +21,14 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      username: [''],
+      email: [''],
       password: ['']
     });
   }
 
   getLoginFormData() {
     const loginData = this.loginForm.getRawValue();
-    this.authetication.login(loginData.username, loginData.password);
+    this.authetication.login(loginData.email, loginData.password);
   }
 
 }

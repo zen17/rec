@@ -69,6 +69,11 @@ export class AppController {
     bob.password = 'aaaa';
     bob.lastName = 'aaaa';
     bob.email = 'bob@gmail.com';
+    bob.city = 'Nis';
+    bob.country = 'Srbija';
+    bob.gender = 'male';
+    bob.zip = 18000;
+    bob.birthDate = '1996-10-17';
     bob.businesses = [business1];
     bob.comments = [comment1];
     await this.connection.manager.save(bob);
@@ -78,6 +83,11 @@ export class AppController {
     ned.lastName = 'aaaa';
     ned.comments = [comment2];
     ned.email = 'ned@gmail.com';
+    ned.city = 'Leskovac';
+    ned.country = 'Srbija';
+    ned.gender = 'male';
+    ned.zip = 18000;
+    ned.birthDate = '1996-10-17';
     await this.connection.manager.save(ned);
     return JSON.stringify({ test: 'SUCCESS ON TEST IMPORT DATA' });
   }

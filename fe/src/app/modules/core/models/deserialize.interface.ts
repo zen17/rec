@@ -1,3 +1,3 @@
 export interface Deserialize {
-  deserialze(dto: any): void;
+  deserialize(dto: any): void;
 }
