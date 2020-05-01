@@ -45,10 +45,18 @@ export abstract class Root {
         this.apiSuccess = true;
     }
 
+    transformNgbDateObjectToString(date) {
+        return date.year + '-' + date.month + '-' + date.day;
+    }
+
     populateObjectFormReactiveFormGroup(formGroup: FormGroup) {
         Object.keys(formGroup.controls).forEach(key => {
             if (this.hasOwnProperty(key)) {
-                this[key] = formGroup.controls[key].value;
+                if (key === 'birthDate') {
+                    this[key] = this.transformNgbDateObjectToString(formGroup.controls[key].value);
+                } else {
+                    this[key] = formGroup.controls[key].value;
+                }
             }
         });
     }

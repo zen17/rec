@@ -11,12 +11,6 @@ export class UserService {
         this.user = new User();
     }
 
-    async findUserByNameAndPassword(name: string, password: string): Promise<User> {
-        this.user.firstName = name;
-        this.user.password = password;
-        return await this.userRepository.findOne(this.user);
-    }
-
     async findById(id: number): Promise<User> {
         Logger.log('ID from token: ' + id);
         return await this.userRepository.findOne(id);

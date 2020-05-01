@@ -3,6 +3,7 @@ import {Business} from '../../business/models/business';
 import {Comment} from '../../comment/models/comment';
 import {Exclude} from 'class-transformer';
 import {Root} from '../../../core-modules/common/models/root';
+import {UserStatus} from "./user.status.enum";
 
 @Entity()
 export class User extends Root {
@@ -40,6 +41,13 @@ export class User extends Root {
 
     @Column('date')
     birthDate;
+
+    @Column({
+        type: "enum",
+        enum: UserStatus,
+        default: UserStatus.PENDING
+    })
+    status: UserStatus;
 
     @OneToMany(type => Business, businesses => businesses.user)
     businesses: Business[];

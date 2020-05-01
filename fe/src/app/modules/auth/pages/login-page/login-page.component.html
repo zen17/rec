@@ -4,16 +4,22 @@
             <img src="assets/toa-heftiba-6bKpHAun4d8-unsplash.jpg" class="img-fluid" alt="Responsive image">
         </div>
         <div class="col-12 col-md-4 p-5 d-flex flex-column align-items-center" [formGroup]="loginForm">
+            <div *ngIf="responseError?.statusCode === 401" class="alert alert-danger" role="alert">
+                Email or password are not good.
+            </div>
+            <div *ngIf="responseError?.statusCode === 403" class="alert alert-info" role="alert">
+                You need to confirm your registration. Go to your mail inbox to find link.
+            </div>
             <span class="font-size-2-5 py-3 color-grey">Login</span>
             <div class="input-group input-group-lg py-2">
                 <div class="input-group-prepend login-input-prepand-width">
-                    <span class="input-group-text width-webkit-fill justify-content-center login-inputs-color" id="inputGroup-sizing-lg"><fa-icon [icon]="faIcons.faUser"></fa-icon></span>
+                    <span class="input-group-text width-webkit-fill justify-content-center login-inputs-color"><fa-icon [icon]="faIcons.faUser"></fa-icon></span>
                 </div>
                 <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" formControlName="email" placeholder="Email">
             </div>
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend login-input-prepand-width">
-                    <span class="input-group-text width-webkit-fill justify-content-center login-inputs-color" id="inputGroup-sizing-lg"><fa-icon [icon]="faIcons.faKey"></fa-icon></span>
+                    <span class="input-group-text width-webkit-fill justify-content-center login-inputs-color"><fa-icon [icon]="faIcons.faKey"></fa-icon></span>
                 </div>
                 <input type="password" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" formControlName="password"  placeholder="Password">
             </div>

@@ -12,8 +12,7 @@ import {UserService} from "../../../core/services/user.service";
 export class CreateUserPageComponent implements OnInit {
 
     createUserFormGroup: FormGroup;
-errorMsg = '';
-    model: NgbDateStruct;
+    errorMsg = '';
 
     constructor(private readonly userService: UserService) {
     }
@@ -76,6 +75,9 @@ errorMsg = '';
     }
 
     createUser() {
+        const date = new Date('1996-10-17');
+        console.log('DATEEEE: ', date.toISOString())
+
         if (this.createUserFormGroup.valid) {
             const user = new User();
             user.populateObjectFormReactiveFormGroup(this.createUserFormGroup);
@@ -84,7 +86,7 @@ errorMsg = '';
             this.userService.createUser(user).subscribe(success => {
                 console.log(success);
                 this.errorMsg = 'User created';
-            } , error => {
+            }, error => {
                 console.log(error);
                 this.errorMsg = error.error.message;
             });

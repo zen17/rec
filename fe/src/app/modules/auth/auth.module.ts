@@ -9,10 +9,11 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {CreateUserPageComponent} from './pages/create-user-page/create-user-page.component';
 import {NgbDatepickerModule} from "@ng-bootstrap/ng-bootstrap";
 import {RouterModule} from "@angular/router";
+import { ConfirmationPageComponent } from './pages/confirmation-page/confirmation-page.component';
 
 
 @NgModule({
-    declarations: [LoginPageComponent, UserProfilePageComponent, CreateUserPageComponent],
+    declarations: [LoginPageComponent, UserProfilePageComponent, CreateUserPageComponent, ConfirmationPageComponent],
     imports: [
         CommonModule, HttpClientModule, ReactiveFormsModule, FontAwesomeModule, NgbDatepickerModule, RouterModule
     ],
