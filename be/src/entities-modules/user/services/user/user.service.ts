@@ -5,10 +5,7 @@ import {User} from '../../models/user';
 
 @Injectable()
 export class UserService {
-    private readonly user: User;
-
     constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) {
-        this.user = new User();
     }
 
     async findById(id: number): Promise<User> {
@@ -31,5 +28,9 @@ export class UserService {
 
     async findUserByEmailAndPassword(email: string, password: string): Promise<User> {
         return await this.userRepository.findOne({where: {email: email, password: password}});
+    }
+
+    async verifyUser (email: string) {
+
     }
 }

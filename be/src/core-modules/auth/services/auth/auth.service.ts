@@ -11,13 +11,13 @@ export class AuthService {
         private readonly jwtService: JwtService) {
     }
 
-    async validateUser(email: string, password: string): Promise<User> {
+    //for local strategy
+    async findUserByEmailAndPassword(email: string, password: string): Promise<User> {
         const user = await this.usersService.findUserByEmailAndPassword(email, password);
         if (user && user.password === password) {
             if (user.status === UserStatus.PENDING) {
-                throw  new HttpException('Please go activate your account', HttpStatus.FORBIDDEN)
+                throw  new HttpException('Please activate your account', HttpStatus.FORBIDDEN)
             } else {
-                Logger.log(user);
                 return user;
             }
         }
@@ -26,8 +26,15 @@ export class AuthService {
 
     async loginAndAssignTokenToUser(user: User) {
         const payload = {email: user.email, id: user.id};
-        return {
-            access_token: this.jwtService.sign(payload),
-        };
+        const access_token = await this.jwtService.sign(payload);
+        return {access_token: access_token};
     }
+
+    async getVerificationToken(user: User) {
+        // const payload = {email: user.email, id: user.id};
+        // const verification_token = await this.jwtService.sign(payload, {expiresIn: '86400'});
+        // return {verification_token: verification_token};
+    }
+
+
 }

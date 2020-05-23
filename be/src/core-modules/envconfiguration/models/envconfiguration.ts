@@ -1,4 +1,4 @@
-import { Logger } from "@nestjs/common";
+import {Logger} from "@nestjs/common";
 
 export class Envconfiguration {
 
@@ -8,8 +8,15 @@ export class Envconfiguration {
         port: 5432,
         username: 'root',
         password: 'recpass',
-        dbame: 'rec_local_db'
+        dbame: 'rec_local_db',
+        emailHost: 'localhost',
+        emailUser: 'jocicn17@gmail.com',
+        emailPort: 5432,
+        emailId: 'root',
+        emailPassword: 'Blablabla17!',
+        sentFrom: '"Nest Test <mail@mail>"'
     };
+
     private constructor() {
         if (process.env.ENV === 'DEV') {
             this.conf = {
@@ -17,19 +24,40 @@ export class Envconfiguration {
                 port: 5432,
                 username: 'root',
                 password: 'recpass',
-                dbame: 'rec_dev_db'
+                dbame: 'rec_local_db',
+                emailHost: 'localhost',
+                emailUser: 'jocicn17@gmail.com',
+                emailPort: 5432,
+                emailId: 'root',
+                emailPassword: 'Blablabla17!',
+                sentFrom: '"Nest Test <mail@mail>"'
             };
         } else if (process.env.ENV === 'PRD') {
             this.conf = {
-                host: '35.228.95.5',
+                host: 'localhost',
                 port: 5432,
-                username: 'postgres',
-                password: process.env.DB_PASSWORD,
-                dbame: 'postgres'
+                username: 'root',
+                password: 'recpass',
+                dbame: 'rec_local_db',
+                emailHost: 'localhost',
+                emailUser: 'jocicn17@gmail.com',
+                emailPort: 5432,
+                emailId: 'root',
+                emailPassword: 'Blablabla17!',
+                sentFrom: '"Nest Test <mail@mail>"'
             };
         }
         Logger.log('CONSTRUCTOR CONF');
         Logger.log(this.conf)
+    }
+
+    public static getSingletonInstance() {
+        Logger.log('SINGLETON CONF');
+        if (this.envConfiguration) {
+            return this.envConfiguration;
+        } else {
+            return new Envconfiguration();
+        }
     }
 
     getUsernameDB() {
@@ -53,14 +81,28 @@ export class Envconfiguration {
         return this.conf.dbame;
     }
 
-    public static getSingletonInstance() {
-        Logger.log('SINGLETON CONF');
-        if (this.envConfiguration) {
-            return this.envConfiguration;
-        } else {
-            return new Envconfiguration();
-        }
+    getEmailHost() {
+        return this.conf.emailHost;
+    }
 
+    getEmailUser() {
+        return this.conf.emailUser;
+    }
+
+    getEmailId() {
+        return this.conf.emailId;
+    }
+
+    getEmailPassword() {
+        return this.conf.emailPassword;
+    }
+
+    getEmailPort() {
+        return this.conf.emailPort;
+    }
+
+    getEmailSentForm() {
+        return this.conf.sentFrom;
     }
 }
 
