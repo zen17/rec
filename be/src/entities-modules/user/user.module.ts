@@ -5,14 +5,20 @@ import {UserService} from './services/user/user.service';
 import {UserController} from './controlers/user/user.controller';
 import {JwtModule} from '@nestjs/jwt';
 import {PassportModule} from '@nestjs/passport';
+import {MailModule} from '../../core-modules/mail/mail.module';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([User]),
-        JwtModule.register({secret: 'secretKeyyfadfgsdfgsdfgsdfgsdfgsdfgsdgsdfgsdfgsdfg'}),
-        PassportModule.register({})],
+    imports: [
+        TypeOrmModule.forFeature([User]),
+        MailModule,
+        JwtModule.register({
+            secret: 'secretKeyyfadfgsdfgsdfgsdfgsdfgsdfgsdgsdfgsdfgsdfg'
+        }),
+        PassportModule.register({})
+    ],
     controllers: [UserController],
     providers: [UserService],
-    exports: [UserService],
+    exports: [UserService]
 })
 export class UserModule {
 }

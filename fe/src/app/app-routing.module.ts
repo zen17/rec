@@ -7,6 +7,7 @@ import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { ListWithPagintonComponent } from './modules/review/pages/list-with-paginton/list-with-paginton.component';
 import { BusinessProfileComponent } from './modules/review/pages/business-profile/business-profile.component';
 import {CreateUserPageComponent} from './modules/auth/pages/create-user-page/create-user-page.component';
+import {ConfirmationPageComponent} from './modules/auth/pages/confirmation-page/confirmation-page.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'create-user',
     component: CreateUserPageComponent
+  },
+  {
+    path: 'confirm-user',
+    component : ConfirmationPageComponent,
   },
   {
     path: '**',

@@ -14,7 +14,8 @@ export class Envconfiguration {
         emailPort: 5432,
         emailId: 'root',
         emailPassword: 'Blablabla17!',
-        sentFrom: '"Nest Test <mail@mail>"'
+        sentFrom: '"Nest Test <mail@mail>"',
+        emailService: 'gmail'
     };
 
     private constructor() {
@@ -30,7 +31,8 @@ export class Envconfiguration {
                 emailPort: 5432,
                 emailId: 'root',
                 emailPassword: 'Blablabla17!',
-                sentFrom: '"Nest Test <mail@mail>"'
+                sentFrom: '"Nest Test <mail@mail>"',
+                emailService: 'gmail'
             };
         } else if (process.env.ENV === 'PRD') {
             this.conf = {
@@ -44,7 +46,8 @@ export class Envconfiguration {
                 emailPort: 5432,
                 emailId: 'root',
                 emailPassword: 'Blablabla17!',
-                sentFrom: '"Nest Test <mail@mail>"'
+                sentFrom: '"Nest Test <mail@mail>"',
+                emailService: 'gmail'
             };
         }
         Logger.log('CONSTRUCTOR CONF');
@@ -103,6 +106,10 @@ export class Envconfiguration {
 
     getEmailSentForm() {
         return this.conf.sentFrom;
+    }
+
+    getEmailService() {
+        return this.conf.emailService;
     }
 }
 
