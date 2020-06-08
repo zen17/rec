@@ -2,6 +2,7 @@ import {Injectable, Logger} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
 import {User} from '../../models/user';
+import {UserStatus} from '../../models/user.status.enum';
 
 @Injectable()
 export class UserService {
@@ -30,7 +31,14 @@ export class UserService {
         return await this.userRepository.findOne({where: {email: email, password: password}});
     }
 
-    async verifyUser (email: string) {
-
+    async verifyUser (id: number) {
+        return  await  this.userRepository
+            .createQueryBuilder()
+            .update(User)
+            .set({
+                status: UserStatus.ACTIVE ,
+            })
+            .where("id = :id", { id: id })
+            .execute();
     }
 }

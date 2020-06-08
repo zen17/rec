@@ -19,7 +19,9 @@ export class Envconfiguration {
     };
 
     private constructor() {
+        Logger.log('ENV ---------->>' + process.env.ENV);
         if (process.env.ENV === 'DEV') {
+            Logger.log('USLOOOOOOOOO');
             this.conf = {
                 host: 'localhost',
                 port: 5432,
@@ -35,12 +37,13 @@ export class Envconfiguration {
                 emailService: 'gmail'
             };
         } else if (process.env.ENV === 'PRD') {
+            Logger.log('USLOOOOOOOOO u PRD ' + process.env.DB_PASSWORD);
             this.conf = {
-                host: 'localhost',
+                host: '35.228.95.5',
                 port: 5432,
-                username: 'root',
-                password: 'recpass',
-                dbame: 'rec_local_db',
+                username: 'postgres',
+                password: process.env.DB_PASSWORD,
+                dbame: 'postgres',
                 emailHost: 'localhost',
                 emailUser: 'jocicn17@gmail.com',
                 emailPort: 5432,
@@ -51,6 +54,7 @@ export class Envconfiguration {
             };
         }
         Logger.log('CONSTRUCTOR CONF');
+        Logger.log('USLOOOOOOOOO u PRD ' + process.env.ENV + '  ' + process.env.DB_PASSWORD);
         Logger.log(this.conf)
     }
 

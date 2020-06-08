@@ -1,4 +1,5 @@
 runtime: nodejs10
 service: rec-be
-includes:
-- env-prd.yaml
+env_variables:
+  ENV: "PRD"
+  DB_PASSWORD: "Blablabla17!"

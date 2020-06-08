@@ -30,37 +30,44 @@ export class UserController {
 
     @Post('createuser')
     async createUser(@Body() user) {
-        user.birthDate = '1996-10-17';
+        user.birthDate = '1996-10-173333';
         const res = await this.userService.findUserByEmail(user);
         if (res) {
-            throw  new HttpException(
+            throw new HttpException(
                 'User with this mail already exist',
                 HttpStatus.CONFLICT
             );
         } else {
             try {
                 const responseUser = await this.userService.createUser(user);
+                Logger.log('BREAK');
                 const activationToken = await this.jwtService.sign(user);
                 const mail = new Mail('Activation Mail', {firstName: user.firstName}, 'index', user.email, 'user_support@zengoup.com');
-                const mailRes = await this.mailService.sendMail(mail);
+                await this.mailService.sendMail(mail);
                 Logger.log(activationToken);
                 return responseUser;
             } catch (e) {
-                Logger.log(e);
+                throw new HttpException(
+                    'Something is wrong with request',
+                    HttpStatus.BAD_REQUEST
+                );
             }
-
         }
-
     }
 
 
     @Post('verifyuser')
-    async verifyUser(@Request() req) {
+    async verifyUser(@Body() req) {
+        Logger.log('REQ');
+        Logger.log(req.activationToken);
         const decodedToken = this.jwtService.decode(req.activationToken, {
             json: true
         });
+
+        //  this.userService.verifyUser(decodedToken.id);
         Logger.log('DECODED TOKEN');
         Logger.log(decodedToken);
+        return decodedToken;
         // this.userService.verifyUser(decodedToken.email);
     }
 }
